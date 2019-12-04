@@ -60,9 +60,43 @@ document.addEventListener('keypress', (event) => {
   }
 })
 
-//7. change text color when mouse pressed
+//7. change text color when mouse pressed down
 const changeText = document.querySelectorAll('p');
 document.addEventListener('mousedown', (event) => {
-  changeText.style.color = 'red';
+  changeText.forEach(item => item.style.color = 'red')
+})
+
+//8. change text color back with mouseup
+document.addEventListener('mouseup', (event) => {
+  changeText.forEach(item => item.style.color = 'black')
+})
+
+//9. scroll
+window.addEventListener('scroll', (event) => {
+  background.style.backgroundColor = 'red';
+  header.style.backgroundColor = 'dodgerblue';
+  footer.style.backgroundColor = 'rebeccapurple'
+})
+
+//10. flip cards with gsap
+const introsec = document.querySelector('.intro').addEventListener("contextmenu", (event) => {
+  gsap.to('.intro', {
+       duration: 1,
+       rotateY: 180,
+       ease: "elastic(1, 0.75)"
+       
+
+      })
+      event.stopPropagation();
+  })//5
+  
+const allimg = document.querySelectorAll("img").forEach(el => {
+el.addEventListener("dblclick", () => {
+  gsap.to(el, {
+   duration: 1,
+   rotateX: 180,
+   ease: "elastic(1, 0.75)"
+  })
+})
 })
 
