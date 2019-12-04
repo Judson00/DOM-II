@@ -100,3 +100,10 @@ el.addEventListener("dblclick", () => {
 })
 })
 
+//prevent default
+const prevent = document.querySelectorAll('a').forEach(el => {
+  eladdEventListener('click', () => {
+    event.preventDefault();
+  })
+})
+
